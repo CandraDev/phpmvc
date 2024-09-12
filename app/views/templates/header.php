@@ -18,6 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="<?= BASEURL; ?>">Home</a>
+                <a class="nav-item nav-link" href="<?= BASEURL; ?>/movies">Movies</a>
                 <a class="nav-item nav-link" href="<?= BASEURL; ?>/about">About</a>
             </div>
         </div>
