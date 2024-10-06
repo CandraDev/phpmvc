@@ -1,8 +1,7 @@
-<?php if(isset($_POST['movieTitle'])){var_dump($_POST);}?>
-
 <div class="container mt-5">
     <h1 class="text-center mb-4">My Movies List</h1>
     <div class="row-12 mx-auto">
+        <?php Flasher::flash(); ?>
         <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addMovie">
             Add Movie
         </button>
@@ -29,7 +28,7 @@
             </div>
             <div class="modal-body">
 
-                <form action="" method="POST">
+                <form action="movies/add/" method="POST">
                     <div class="form-group">
                         <label for="movieTitle">Movie Title</label>
                         <input type="text" name="movieTitle" class="form-control" id="movieTitle" placeholder="Insert the movie's title...">
@@ -41,6 +40,10 @@
                     <div class="form-group">
                         <label for="movieRated">Movie Rated</label>
                         <input type="text" name="movieRated" class="form-control" id="movieRated" placeholder="Insert the movie's rated rating...">
+                    </div>
+                    <div class="form-group">
+                        <label for="movieGenre">Movie Genre</label>
+                        <input type="text" name="movieGenre" class="form-control" id="movieGenre" placeholder="Insert the movie's genres...">
                     </div>
                     <div class="form-group">
                         <label for="moviePoster">Movie Poster Link</label>

@@ -16,8 +16,14 @@ class Movies extends Controller {
         $this->view('movies/detail', $data);
         $this->view('templates/footer');
     }
-    
-    public function add(){
-        $this->view('movies/add');
+
+    public function add() {
+        if ($this->model('Movies_model')->addMovie($_POST) > 0) {
+            Flasher::setFlash('successfully', 'added', 'success');
+            header('Location: ' . BASEURL . '/movies');
+            exit;
+        } else {
+            Flasher::setFlash('failed to be', 'added', 'danger');
+        }
     }
 }
