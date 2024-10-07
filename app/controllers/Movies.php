@@ -26,4 +26,14 @@ class Movies extends Controller {
             Flasher::setFlash('failed to be', 'added', 'danger');
         }
     }
+
+    public function delete($id) {
+        if ($this->model('Movies_model')->deleteMovie($id) > 0) {
+            Flasher::setFlash('successfully', 'deleted', 'danger');
+            header('Location: ' . BASEURL . '/movies');
+            exit;
+        } else {
+            Flasher::setFlash('failed to be', 'added', 'danger');
+        }
+    }
 }

@@ -35,4 +35,11 @@ class Movies_model extends Database {
 
         return $this->db->rowCount();
     }
+
+    public function deleteMovie($id){
+        $this->db->query("DELETE FROM `$this->table` WHERE id=:id");
+        $this->db->bind('id', $id);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }

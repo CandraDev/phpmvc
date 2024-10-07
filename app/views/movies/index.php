@@ -9,8 +9,9 @@
         <ul class="list-group">
             <?php $movies = new Movies_model;
             foreach ($movies->getAllMovies() as $mov): ?>
-                <li class="list-group-item d-flex justify-content-between align-items-center"><?= htmlspecialchars($mov['title']); ?>
-                    <a href="<?= BASEURL; ?>/movies/detail/<?= $mov['id'] ?>" class="badge badge-primary">Detail</a>
+                <li class="list-group-item "><?= htmlspecialchars($mov['title']); ?>
+                <a href="<?= BASEURL; ?>/movies/delete/<?= $mov['id'] ?>" class="badge badge-danger float-right ml-1">Hapus</a>
+                <a href="<?= BASEURL; ?>/movies/detail/<?= $mov['id'] ?>" class="badge badge-primary float-right ml-2">Detail</a>
                 </li>
             <?php endforeach; ?>
         </ul>
