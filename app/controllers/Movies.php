@@ -36,4 +36,18 @@ class Movies extends Controller {
             Flasher::setFlash('failed to be', 'added', 'danger');
         }
     }
+
+    public function getUpdate() {
+        echo json_encode($this->model('Movies_model')->getMovieById($_POST['id']));
+    }
+
+    public function update() {
+        if ($this->model('Movies_model')->updateMovie($_POST) > 0) {
+            Flasher::setFlash('successfully', 'updated', 'success');
+            header('Location: ' . BASEURL . '/movies');
+            exit;
+        } else {
+            Flasher::setFlash('failed to be', 'updated', 'danger');
+        }
+    }
 }

@@ -42,4 +42,26 @@ class Movies_model extends Database {
         $this->db->execute();
         return $this->db->rowCount();
     }
+
+    public function updateMovie($data) {
+        $query = "UPDATE `$this->table`
+                SET
+                title = :title,
+                year = :year,
+                rated = :rated,
+                genre = :genre,
+                poster = :poster
+                WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $data['id']);
+        $this->db->bind('title', $data['movieTitle']);
+        $this->db->bind('year', $data['movieYear']);
+        $this->db->bind('rated', $data['movieRated']);
+        $this->db->bind('genre', $data['movieGenre']);
+        $this->db->bind('poster', $data['moviePoster']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }
